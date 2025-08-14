@@ -55,15 +55,15 @@ export const FileUpload = ({ onFileSelect, accept = "image/*", className }: File
         onChange={handleFileInput}
         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
       />
-      <div className="flex flex-col items-center justify-center p-8 text-center">
-        <div className="w-16 h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-4 shadow-glow transition-transform duration-300 group-hover:scale-110">
-          <Upload className="w-8 h-8 text-primary-foreground" />
+      <div className="flex flex-col items-center justify-center p-4 md:p-8 text-center">
+        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-primary flex items-center justify-center mb-3 md:mb-4 shadow-glow transition-transform duration-300 group-hover:scale-110">
+          <Upload className="w-6 h-6 md:w-8 md:h-8 text-primary-foreground" />
         </div>
-        <h3 className="text-lg font-semibold mb-2">Upload Your Photo</h3>
-        <p className="text-muted-foreground text-sm">
+        <h3 className="text-base md:text-lg font-semibold mb-2">Upload Your Photo</h3>
+        <p className="text-muted-foreground text-xs md:text-sm px-2">
           Drag and drop an image here, or click to browse
         </p>
-        <p className="text-xs text-muted-foreground/70 mt-2">
+        <p className="text-xs text-muted-foreground/70 mt-2 hidden md:block">
           Supports JPG, PNG, and WEBP formats
         </p>
       </div>
