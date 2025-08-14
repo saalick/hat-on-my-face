@@ -21,9 +21,14 @@ export const ImageEditor = ({ imageFile, onReset }: ImageEditorProps) => {
   useEffect(() => {
     if (!canvasRef.current) return;
 
+    // Make canvas responsive
+    const isMobile = window.innerWidth < 768;
+    const canvasWidth = isMobile ? Math.min(window.innerWidth - 32, 400) : 800;
+    const canvasHeight = isMobile ? Math.min(window.innerHeight * 0.5, 300) : 600;
+
     const canvas = new FabricCanvas(canvasRef.current, {
-      width: 800,
-      height: 600,
+      width: canvasWidth,
+      height: canvasHeight,
       backgroundColor: "#ffffff",
     });
 
@@ -127,25 +132,27 @@ export const ImageEditor = ({ imageFile, onReset }: ImageEditorProps) => {
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap gap-4 items-center justify-between">
-        <div className="flex gap-2">
-          <Button onClick={addHat} disabled={!!hatObject} variant="default">
+    <div className="space-y-4 md:space-y-6">
+      <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-stretch sm:items-center sm:justify-between">
+        <div className="flex gap-2 flex-wrap">
+          <Button onClick={addHat} disabled={!!hatObject} variant="default" size="sm" className="flex-1 sm:flex-initial">
             Add Hat
           </Button>
-          <Button onClick={removeHat} disabled={!hatObject} variant="outline">
+          <Button onClick={removeHat} disabled={!hatObject} variant="outline" size="sm" className="flex-1 sm:flex-initial">
             <Trash2 className="w-4 h-4 mr-2" />
-            Remove Hat
+            <span className="hidden sm:inline">Remove Hat</span>
+            <span className="sm:hidden">Remove</span>
           </Button>
         </div>
-        <div className="flex gap-2">
-          <Button onClick={downloadImage} variant="default">
+        <div className="flex gap-2 flex-wrap">
+          <Button onClick={downloadImage} variant="default" size="sm" className="flex-1 sm:flex-initial">
             <Download className="w-4 h-4 mr-2" />
             Download
           </Button>
-          <Button onClick={onReset} variant="outline">
+          <Button onClick={onReset} variant="outline" size="sm" className="flex-1 sm:flex-initial">
             <RotateCcw className="w-4 h-4 mr-2" />
-            New Photo
+            <span className="hidden sm:inline">New Photo</span>
+            <span className="sm:hidden">New</span>
           </Button>
         </div>
       </div>
@@ -188,7 +195,7 @@ export const ImageEditor = ({ imageFile, onReset }: ImageEditorProps) => {
       )}
 
       <div className="bg-card rounded-lg shadow-large overflow-hidden">
-        <canvas ref={canvasRef} className="max-w-full border" />
+        <canvas ref={canvasRef} className="w-full max-w-full border" style={{ height: 'auto' }} />
       </div>
     </div>
   );
