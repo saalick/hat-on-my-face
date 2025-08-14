@@ -12,8 +12,10 @@ export const FileUpload = ({ onFileSelect, accept = "image/*", className }: File
   const handleDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
+      console.log("Drop event triggered", e.dataTransfer.files);
       const files = e.dataTransfer.files;
       if (files.length > 0) {
+        console.log("File selected via drop:", files[0]);
         onFileSelect(files[0]);
       }
     },
@@ -26,8 +28,10 @@ export const FileUpload = ({ onFileSelect, accept = "image/*", className }: File
 
   const handleFileInput = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
+      console.log("File input change triggered", e.target.files);
       const files = e.target.files;
       if (files && files.length > 0) {
+        console.log("File selected via input:", files[0]);
         onFileSelect(files[0]);
       }
     },

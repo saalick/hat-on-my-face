@@ -6,6 +6,7 @@ const Index = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
   const handleFileSelect = (file: File) => {
+    console.log("File received in Index component:", file);
     setSelectedFile(file);
   };
 
