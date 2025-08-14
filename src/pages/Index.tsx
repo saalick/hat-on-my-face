@@ -19,10 +19,10 @@ const Index = () => {
       <div className="container mx-auto px-4 py-4 md:py-8">
         <div className="text-center mb-6 md:mb-8">
           <h1 className="text-2xl md:text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2 md:mb-4">
-            Hat Photo Editor
+            $OWIF
           </h1>
           <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Upload your photo and add a stylish hat! Perfect for creating fun profile pictures and social media posts.
+            Add the original wif hat to your pictures! Perfect for creating fun profile pictures and social media posts.
           </p>
         </div>
 
