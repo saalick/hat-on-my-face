@@ -4,7 +4,7 @@ import { Button } from "./button";
 import { Slider } from "./slider";
 import { RotateCcw, Download, Trash2, Move, RotateCw } from "lucide-react";
 import { toast } from "sonner";
-import hatImage from "@/assets/hat.png";
+import hatImage from "@/assets/hatt.png";
 
 interface ImageEditorProps {
   imageFile: File;
@@ -124,7 +124,7 @@ export const ImageEditor = ({ imageFile, onReset }: ImageEditorProps) => {
     });
 
     const link = document.createElement("a");
-    link.download = "photo-with-hat.png";
+    link.download = "photo-with-hatt.png";
     link.href = dataURL;
     link.click();
     
